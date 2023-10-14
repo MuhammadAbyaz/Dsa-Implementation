@@ -27,13 +27,17 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         return size;
     }
 
-    public void addFirst() {
+    public void addFirst(T value) {
+        Node<T> newNode = new Node<>(value);
+        newNode.previous = head.previous;
+        newNode.next = head;
+        head = newNode;
     }
 
     public void addLast(T value) {
         Node<T> newNode = new Node<>(value);
 
-        if (head == null) {
+        if (size == 0) {
             head = newNode;
             tail = newNode;
         } else {
@@ -83,9 +87,23 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         return output.toString();
     }
 
-    public void reverse() {
-        
+    public String reverse() {
+        Node<T> header = head;
+        head = tail;
+        tail = header;
+        StringBuilder output = new StringBuilder();
+        output.append("[");
+        Node<T> current = head;
+        while (current.previous != null) {
+            output.append(current.value);
+            output.append(", ");
+            current = current.previous;
+        }
+        output.append(tail.value);
+        output.append("]");
+        return output.toString();
     }
+
 
     @Override
     public Iterator<T> iterator() {

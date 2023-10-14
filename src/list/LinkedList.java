@@ -17,7 +17,7 @@ public class LinkedList<T> {
     Node<T> tail = null;
 
     public void add(T data) {
-        Node<T> newNode = new Node<T>(data);
+        Node<T> newNode = new Node<>(data);
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -78,7 +78,6 @@ public class LinkedList<T> {
         Node<T> current = head;
         Node<T> next;
         Node<T> previous = null;
-        Node<T> last = null;
 
         while (current != null) {
             next = current.next;

@@ -9,7 +9,7 @@ public class Main {
         doubleLinkedList.addLast(3);
         doubleLinkedList.addLast(2);
 
-        doubleLinkedList.addAt(2, 1);
+        doubleLinkedList.addFirst(6);
         System.out.println(doubleLinkedList.toString());
     }
 }
